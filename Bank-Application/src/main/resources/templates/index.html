@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	
+</head>
+
+<body>
+
+	
+
+	
+
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
+		async function paymentRequest() {
+			
+			const response = await fetch('http://localhost:8081/', {
+				method: 'GET',
+				
+				
+			});
+
+			
+		}
+
+		document.getElementById('rzp-button1').onclick = async function (e) {
+			const order = await paymentRequest();
+			console.log(order);
+
+			var options = {
+				"key": "rzp_test_oAlx2Y3aMB9eg1",
+				"amount": order.amount,
+				"currency": "INR",
+				"name": "Ashok IT",
+				"description": "Test Transaction",
+				
+				"callback_url": "http://localhost:8080/payment-callback",
+				"prefill": {
+					"name": order.name,
+					"email": order.email,
+					"contact": order.phno
+				},
+				"theme": {
+					"color": "#3399cc"
+				}
+			};
+			var rzp1 = new Razorpay(options);
+			rzp1.open();
+			e.preventDefault();
+		}
+	</script>
+</body>
+
+</html>
