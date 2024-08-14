@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "29f66e1b-8305-4d56-949a-6ed607d2029d",
+		"name": "Bank-application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33959293"
+	},
+	"item": [
+		{
+			"name": "api/customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNum\": 9867667667568,\r\n    \"userName\": \"jay\",\r\n    \"email\": \"jay@gmail.com\",\r\n    \"password\": \"jay@123\",\r\n    \"balance\": 2000,\r\n    \"phoneNum\": 8787676666,\r\n    \"dob\": \"2000-03-08\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/verify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 200,\r\n    \"currency\": \"INR\",\r\n    \"paymentId\":\"pay_OknKmXrrjKnsf0\",\r\n    \"fromAccountNum\":9867667667568,\r\n    \"toAccountNum\":890909987878015,\r\n    \"name\": \"priya\",\r\n    \"paymentStatus\":\"NC\",\r\n    \"phoneNum\":8988677660\r\n    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/verify",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/create-link",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNum\": 9867667667568,\r\n    \"userName\": \"jay\",\r\n    \"email\": \"jay@gmail.com\",\r\n    \"password\": \"jay@123\",\r\n    \"balance\": 2000,\r\n    \"phoneNum\": 8787676666,\r\n    \"dob\": \"2000-03-08\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/create-link?fromAccountNum=9867667667568&toAccountNum=890909987878015&amount=200",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"create-link"
+					],
+					"query": [
+						{
+							"key": "fromAccountNum",
+							"value": "9867667667568"
+						},
+						{
+							"key": "toAccountNum",
+							"value": "890909987878015"
+						},
+						{
+							"key": "amount",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
